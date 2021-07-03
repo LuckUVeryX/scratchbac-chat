@@ -18,6 +18,7 @@ class FlashChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: ThemeData.dark(),
       initialBinding: LandingBinding(),
       getPages: AppPages.pages,
       home: GetBuilder<LandingController>(

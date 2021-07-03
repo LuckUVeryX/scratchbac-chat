@@ -31,7 +31,6 @@ class ChatScreen extends StatelessWidget {
             const Text('Scratchbac Core'),
           ],
         ),
-        backgroundColor: Colors.lightBlueAccent,
       ),
       body: SafeArea(
         child: Column(

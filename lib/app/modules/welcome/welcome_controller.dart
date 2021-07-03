@@ -17,7 +17,7 @@ class WelcomeController extends GetxController
       upperBound: 1,
     );
     backgroundColorAnimation =
-        ColorTween(begin: Colors.blueGrey, end: Colors.white)
+        ColorTween(begin: Colors.blueGrey, end: Colors.grey[850])
             .animate(_animationController)
               ..addListener(() => update());
     _animationController.forward();

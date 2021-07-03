@@ -14,7 +14,6 @@ class LoginScreen extends StatelessWidget {
     AuthController controller = Get.find();
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: GetBuilder<AuthController>(builder: (_) {
         return ModalProgressHUD(
           inAsyncCall: controller.showSpinner,

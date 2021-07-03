@@ -14,7 +14,6 @@ class UsernameScreen extends StatelessWidget {
     UsernameController controller = Get.find();
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: GetBuilder<UsernameController>(builder: (_) {
         return ModalProgressHUD(
           inAsyncCall: controller.showSpinner,

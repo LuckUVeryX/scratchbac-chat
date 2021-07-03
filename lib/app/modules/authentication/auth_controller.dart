@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/app/data/repository/auth_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,16 +12,36 @@ class AuthController extends GetxController {
 
   Future<void> registerUser() async {
     updateSpinner(true);
-    await repository.createUser(emailController.text, passwordController.text);
-    emailController.clear();
-    passwordController.clear();
-    updateSpinner(false);
+    try {
+      await repository.createUser(
+        emailController.text,
+        passwordController.text,
+      );
+      emailController.clear();
+      passwordController.clear();
+    } on FirebaseAuthException catch (e) {
+      Get.snackbar(e.code, e.message ?? '');
+      debugPrint('Error creating user: ${e.toString()}');
+    } finally {
+      updateSpinner(false);
+    }
   }
 
   Future<void> signInUser() async {
-    await repository.signInUser(emailController.text, passwordController.text);
-    emailController.clear();
-    passwordController.clear();
+    updateSpinner(true);
+    try {
+      await repository.signInUser(
+        emailController.text,
+        passwordController.text,
+      );
+      emailController.clear();
+      passwordController.clear();
+    } on FirebaseAuthException catch (e) {
+      Get.snackbar(e.code, e.message ?? '');
+      debugPrint('Error signing in user: ${e.toString()}');
+    } finally {
+      updateSpinner(false);
+    }
   }
 
   void updateSpinner(bool value) {

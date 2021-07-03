@@ -27,7 +27,8 @@ class UsernameScreen extends StatelessWidget {
                 const SizedBox(height: 48.0),
                 TextField(
                   controller: controller.usernameEditingController,
-                  keyboardType: TextInputType.emailAddress,
+                  textCapitalization: TextCapitalization.words,
+                  keyboardType: TextInputType.name,
                   textAlign: TextAlign.center,
                   decoration: kTextFieldDecoration.copyWith(
                       hintText: 'Enter your username'),

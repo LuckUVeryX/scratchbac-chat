@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/app/data/model/message_model.dart';
 import 'package:flash_chat/app/data/provider/firebase_auth_provider.dart';
 import 'package:get/get.dart';
@@ -8,9 +9,11 @@ class FirestoreProvider extends GetxService {
   final _firebaseAuth = Get.find<FirebaseAuthProvider>();
 
   Future<void> sendText(String text) async {
+    User? user = _firebaseAuth.getCurrentUser();
     await _firestore.collection('messages').add({
       'text': text,
-      'sender': _firebaseAuth.getCurrentUser()?.email,
+      'displayName': user?.displayName,
+      'sender': user?.email,
       'createdTime': DateTime.now().millisecondsSinceEpoch,
     });
   }

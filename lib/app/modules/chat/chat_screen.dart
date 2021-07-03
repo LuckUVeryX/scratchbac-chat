@@ -20,7 +20,17 @@ class ChatScreen extends StatelessWidget {
               icon: const Icon(Icons.close),
               onPressed: () => controller.signOut()),
         ],
-        title: const Text('⚡️Chat'),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 35.0,
+              child: Image.asset('images/logo_white.png'),
+            ),
+            const SizedBox(width: 8.0),
+            const Text('Scratchbac Core'),
+          ],
+        ),
         backgroundColor: Colors.lightBlueAccent,
       ),
       body: SafeArea(

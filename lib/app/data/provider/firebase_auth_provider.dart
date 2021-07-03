@@ -25,6 +25,11 @@ class FirebaseAuthProvider extends GetxService {
     await _auth.signOut();
   }
 
+  Future<void> updateDisplayName(String displayName) async {
+    final User? user = getCurrentUser();
+    await user?.updateDisplayName(displayName);
+  }
+
   User? getCurrentUser() {
     User? user;
     try {

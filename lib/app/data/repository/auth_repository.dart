@@ -14,4 +14,8 @@ class AuthRepository {
   Future<UserCredential?> signInUser(String email, String password) async {
     return await provider.signInUser(email, password);
   }
+
+  Future<void> updateDisplayName(String displayName) async {
+    await provider.updateDisplayName(displayName);
+  }
 }

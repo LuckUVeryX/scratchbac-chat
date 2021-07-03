@@ -18,6 +18,8 @@ class LandingController extends GetxController {
   void checkUser(User? user) {
     if (user?.uid == null) {
       Get.offAllNamed(Routes.welcome);
+    } else if (user?.displayName == null) {
+      Get.offAllNamed(Routes.username);
     } else {
       Get.offAllNamed(Routes.chat);
     }

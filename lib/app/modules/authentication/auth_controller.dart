@@ -14,7 +14,7 @@ class AuthController extends GetxController {
     updateSpinner(true);
     try {
       await repository.createUser(
-        emailController.text,
+        emailController.text.trim(),
         passwordController.text,
       );
       emailController.clear();
@@ -31,7 +31,7 @@ class AuthController extends GetxController {
     updateSpinner(true);
     try {
       await repository.signInUser(
-        emailController.text,
+        emailController.text.trim(),
         passwordController.text,
       );
       emailController.clear();

@@ -10,11 +10,13 @@ class LogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: 'hero',
-      child: SizedBox(
-        height: height ?? 200,
-        child: Image.asset('images/logo.png'),
+    return Flexible(
+      child: Hero(
+        tag: 'logo',
+        child: SizedBox(
+          height: height ?? 200,
+          child: Image.asset('images/logo.png'),
+        ),
       ),
     );
   }

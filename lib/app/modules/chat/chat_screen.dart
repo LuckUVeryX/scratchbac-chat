@@ -1,3 +1,4 @@
+import 'package:flash_chat/app/data/model/message_model.dart';
 import 'package:flash_chat/app/modules/chat/chat_controller.dart';
 import 'package:flash_chat/app/widgets/message_bubble.dart';
 import 'package:flutter/material.dart';
@@ -34,9 +35,16 @@ class ChatScreen extends StatelessWidget {
                     horizontal: 10.0,
                     vertical: 20.0,
                   ),
+                  reverse: true,
                   itemCount: controller.messages.length,
                   itemBuilder: (context, index) {
-                    return MessageBubble(message: controller.messages[index]);
+                    final List<MessageModel> messages = controller.messages;
+                    final MessageModel message = messages[index];
+                    final bool isMe = controller.userEmail == message.sender;
+                    return MessageBubble(
+                      message: message,
+                      isMe: isMe,
+                    );
                   },
                 ),
               );

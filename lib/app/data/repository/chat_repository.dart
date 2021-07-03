@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/app/data/model/message_model.dart';
 import 'package:flash_chat/app/data/provider/firebase_auth_provider.dart';
 import 'package:flash_chat/app/data/provider/firestore_provider.dart';
@@ -9,6 +10,10 @@ class ChatRepository {
   });
   final FirebaseAuthProvider firebaseAuthProvider;
   final FirestoreProvider firestoreProvider;
+
+  User? getUser() {
+    return firebaseAuthProvider.getCurrentUser();
+  }
 
   Future<void> sendText(String text) async {
     await firestoreProvider.sendText(text);

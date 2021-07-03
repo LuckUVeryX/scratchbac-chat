@@ -11,12 +11,15 @@ class FirestoreProvider extends GetxService {
     await _firestore.collection('messages').add({
       'text': text,
       'sender': _firebaseAuth.getCurrentUser()?.email,
+      'createdTime': DateTime.now().millisecondsSinceEpoch,
     });
   }
 
   Stream<List<MessageModel>> getMessageStream() {
-    Stream<QuerySnapshot> stream =
-        _firestore.collection('messages').snapshots();
+    Stream<QuerySnapshot> stream = _firestore
+        .collection('messages')
+        .orderBy('createdTime', descending: true)
+        .snapshots();
 
     return stream.map((event) =>
         event.docs.map((e) => MessageModel.fromDocumentSnapshot(e)).toList());

@@ -8,16 +8,19 @@ class ChatController extends GetxController {
   ChatController(this.repository);
   final ChatRepository repository;
   final textController = TextEditingController();
-  final messages = <MessageModel>[].obs;
+  final RxList<MessageModel> messages = <MessageModel>[].obs;
+  late final String? userEmail;
 
   @override
   void onInit() {
     super.onInit();
     messages.bindStream(getMessageStream());
+    userEmail = repository.getUser()?.email;
   }
 
   void sendText() async {
     await repository.sendText(textController.text);
+    textController.clear();
   }
 
   Stream<List<MessageModel>> getMessageStream() {

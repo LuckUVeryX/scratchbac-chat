@@ -1,10 +1,10 @@
+import 'package:flash_chat/app/modules/authentication/login/login_binding.dart';
+import 'package:flash_chat/app/modules/authentication/login/login_screen.dart';
+import 'package:flash_chat/app/modules/authentication/registration/registration_binding.dart';
+import 'package:flash_chat/app/modules/authentication/registration/registration_screen.dart';
 import 'package:flash_chat/app/modules/chat/chat_binding.dart';
 import 'package:flash_chat/app/modules/chat/chat_screen.dart';
 import 'package:flash_chat/app/modules/landing/landing_screen.dart';
-import 'package:flash_chat/app/modules/login/login_binding.dart';
-import 'package:flash_chat/app/modules/login/login_screen.dart';
-import 'package:flash_chat/app/modules/registration/registration_binding.dart';
-import 'package:flash_chat/app/modules/registration/registration_screen.dart';
 import 'package:flash_chat/app/modules/welcome/welcome_binding.dart';
 import 'package:flash_chat/app/modules/welcome/welcome_screen.dart';
 import 'package:get/get.dart';

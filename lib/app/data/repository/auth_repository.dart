@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flash_chat/app/data/provider/firebase_provider.dart';
+import 'package:flash_chat/app/data/provider/firebase_auth_provider.dart';
 
 class AuthRepository {
   AuthRepository(this.provider);
@@ -13,9 +13,5 @@ class AuthRepository {
 
   Future<UserCredential?> signInUser(String email, String password) async {
     return await provider.signInUser(email, password);
-  }
-
-  Future<void> signout() async {
-    await provider.signOut();
   }
 }

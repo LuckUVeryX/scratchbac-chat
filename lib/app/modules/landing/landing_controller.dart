@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flash_chat/app/data/provider/firebase_provider.dart';
+import 'package:flash_chat/app/data/provider/firebase_auth_provider.dart';
 import 'package:flash_chat/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 

@@ -17,8 +17,8 @@ class ChatScreen extends StatelessWidget {
           IconButton(
               icon: const Icon(Icons.close),
               onPressed: () {
-                //Implement logout functionality
-                controller.signOut();
+                controller.getMessageStream();
+                // controller.signOut();
               }),
         ],
         title: const Text('⚡️Chat'),
@@ -29,6 +29,10 @@ class ChatScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Obx(() => Column(children: [
+                  for (var message in controller.messages)
+                    Text('${message.text} from ${message.sender}')
+                ])),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
@@ -36,15 +40,14 @@ class ChatScreen extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: TextField(
-                      onChanged: (value) {
-                        //Do something with the user input.
-                      },
+                      textCapitalization: TextCapitalization.sentences,
+                      controller: controller.textController,
                       decoration: kMessageTextFieldDecoration,
                     ),
                   ),
                   TextButton(
                     onPressed: () {
-                      //Implement send functionality.
+                      controller.sendText();
                     },
                     child: const Text(
                       'Send',

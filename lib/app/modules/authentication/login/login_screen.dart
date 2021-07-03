@@ -1,16 +1,16 @@
-import 'package:flash_chat/app/modules/registration/registration_controller.dart';
+import 'package:flash_chat/app/modules/authentication/auth_controller.dart';
 import 'package:flash_chat/app/widgets/logo.dart';
 import 'package:flash_chat/app/widgets/rounded_button.dart';
 import 'package:flash_chat/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class RegistrationScreen extends StatelessWidget {
-  const RegistrationScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    RegistrationController controller = Get.find();
+    AuthController controller = Get.find();
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -42,12 +42,14 @@ class RegistrationScreen extends StatelessWidget {
                 hintText: 'Enter your password',
               ),
             ),
-            const SizedBox(height: 24.0),
+            const SizedBox(
+              height: 24.0,
+            ),
             RoundedButton(
-              title: 'Register',
-              color: Colors.blueAccent,
+              title: 'Log In',
+              color: Colors.lightBlueAccent,
               onPressed: () {
-                controller.registerUser();
+                controller.signInUser();
               },
             ),
           ],

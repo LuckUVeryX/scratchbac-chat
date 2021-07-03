@@ -10,7 +10,7 @@ class FlashChat extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: kDarkTheme,
-      initialRoute: Routes.LOGIN,
+      initialRoute: Routes.WELCOME,
       getPages: AppPages.pages,
     );
   }

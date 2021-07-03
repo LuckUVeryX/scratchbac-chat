@@ -1,4 +1,6 @@
+import 'package:flash_chat/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -38,6 +40,7 @@ class WelcomeScreen extends StatelessWidget {
                 child: MaterialButton(
                   onPressed: () {
                     //Go to login screen.
+                    Get.toNamed(Routes.LOGIN);
                   },
                   minWidth: 200.0,
                   height: 42.0,
@@ -55,7 +58,8 @@ class WelcomeScreen extends StatelessWidget {
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
-                    //Go to registration screen.
+                    //Go to registration screen
+                    Get.toNamed(Routes.REGISTRATION);
                   },
                   minWidth: 200.0,
                   height: 42.0,

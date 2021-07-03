@@ -5,6 +5,7 @@ import 'package:flash_chat/app/widgets/logo.dart';
 import 'package:flash_chat/app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -23,21 +24,22 @@ class WelcomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    const LogoWidget(height: 60),
-                    AnimatedTextKit(
-                      animatedTexts: [
-                        TypewriterAnimatedText(
-                          'Flash Chat',
+                const LogoWidget(height: 120),
+                Flexible(
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        'Scratchbac Chat',
+                        textAlign: TextAlign.center,
+                        textStyle: GoogleFonts.comfortaa(
                           textStyle: const TextStyle(
-                            fontSize: 45.0,
+                            fontSize: 30.0,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 48.0,

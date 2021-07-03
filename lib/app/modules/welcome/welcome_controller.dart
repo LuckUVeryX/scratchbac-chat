@@ -6,7 +6,7 @@ class WelcomeController extends GetxController
     with SingleGetTickerProviderMixin {
   late AnimationController _animationController;
   late Animation backgroundColorAnimation;
-  final duration = const Duration(seconds: 1);
+  final duration = const Duration(seconds: 5);
 
   @override
   void onInit() {

@@ -12,7 +12,7 @@ class LogoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Hero(
       tag: 'hero',
-      child: Container(
+      child: SizedBox(
         height: height ?? 200,
         child: Image.asset('images/logo.png'),
       ),

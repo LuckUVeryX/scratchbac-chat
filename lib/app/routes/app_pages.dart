@@ -6,16 +6,16 @@ import 'package:get/get.dart';
 
 abstract class AppPages {
   static final pages = [
-    GetPage(name: Routes.WELCOME, page: () => WelcomeScreen()),
-    GetPage(name: Routes.LOGIN, page: () => LoginScreen()),
-    GetPage(name: Routes.REGISTRATION, page: () => RegistrationScreen()),
-    GetPage(name: Routes.CHAT, page: () => ChatScreen()),
+    GetPage(name: Routes.welcome, page: () => const WelcomeScreen()),
+    GetPage(name: Routes.login, page: () => const LoginScreen()),
+    GetPage(name: Routes.registration, page: () => const RegistrationScreen()),
+    GetPage(name: Routes.chat, page: () => const ChatScreen()),
   ];
 }
 
 abstract class Routes {
-  static const WELCOME = '/';
-  static const LOGIN = '/login';
-  static const REGISTRATION = '/registration';
-  static const CHAT = '/chat';
+  static const welcome = '/';
+  static const login = '/login';
+  static const registration = '/registration';
+  static const chat = '/chat';
 }

@@ -1,4 +1,5 @@
 import 'package:flash_chat/app/routes/app_pages.dart';
+import 'package:flash_chat/app/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,10 +16,7 @@ class WelcomeScreen extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Container(
-                  child: Image.asset('images/logo.png'),
-                  height: 60.0,
-                ),
+                LogoWidget(height: 60),
                 Text(
                   'Flash Chat',
                   style: TextStyle(

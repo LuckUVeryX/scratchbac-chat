@@ -1,3 +1,4 @@
+import 'package:flash_chat/app/widgets/logo.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -11,10 +12,7 @@ class RegistrationScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              height: 200.0,
-              child: Image.asset('images/logo.png'),
-            ),
+            LogoWidget(),
             SizedBox(
               height: 48.0,
             ),

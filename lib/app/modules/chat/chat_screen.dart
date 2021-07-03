@@ -1,4 +1,5 @@
 import 'package:flash_chat/app/modules/chat/chat_controller.dart';
+import 'package:flash_chat/app/widgets/message_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
 import 'package:get/get.dart';
@@ -16,10 +17,7 @@ class ChatScreen extends StatelessWidget {
         actions: <Widget>[
           IconButton(
               icon: const Icon(Icons.close),
-              onPressed: () {
-                controller.getMessageStream();
-                // controller.signOut();
-              }),
+              onPressed: () => controller.signOut()),
         ],
         title: const Text('⚡️Chat'),
         backgroundColor: Colors.lightBlueAccent,
@@ -29,10 +27,20 @@ class ChatScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Obx(() => Column(children: [
-                  for (var message in controller.messages)
-                    Text('${message.text} from ${message.sender}')
-                ])),
+            Obx(() {
+              return Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10.0,
+                    vertical: 20.0,
+                  ),
+                  itemCount: controller.messages.length,
+                  itemBuilder: (context, index) {
+                    return MessageBubble(message: controller.messages[index]);
+                  },
+                ),
+              );
+            }),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(

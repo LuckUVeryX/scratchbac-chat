@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MessageModel {
-  MessageModel({this.sender, this.text});
+  MessageModel({required this.sender, required this.text});
 
   factory MessageModel.fromDocumentSnapshot(DocumentSnapshot event) {
     return MessageModel(
@@ -10,6 +10,6 @@ class MessageModel {
     );
   }
 
-  String? sender;
-  String? text;
+  String sender;
+  String text;
 }

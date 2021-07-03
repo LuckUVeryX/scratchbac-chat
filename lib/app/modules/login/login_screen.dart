@@ -1,13 +1,17 @@
+import 'package:flash_chat/app/modules/login/login_controller.dart';
 import 'package:flash_chat/app/widgets/logo.dart';
 import 'package:flash_chat/app/widgets/rounded_button.dart';
 import 'package:flash_chat/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    LoginController controller = Get.find();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -21,9 +25,9 @@ class LoginScreen extends StatelessWidget {
               height: 48.0,
             ),
             TextField(
-              onChanged: (value) {
-                //Do something with the user input.
-              },
+              controller: controller.emailController,
+              keyboardType: TextInputType.emailAddress,
+              textAlign: TextAlign.center,
               decoration:
                   kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
             ),
@@ -31,9 +35,9 @@ class LoginScreen extends StatelessWidget {
               height: 8.0,
             ),
             TextField(
-              onChanged: (value) {
-                //Do something with the user input.
-              },
+              controller: controller.passwordController,
+              obscureText: true,
+              textAlign: TextAlign.center,
               decoration: kTextFieldDecoration.copyWith(
                 hintText: 'Enter your password',
               ),
@@ -44,7 +48,9 @@ class LoginScreen extends StatelessWidget {
             RoundedButton(
               title: 'Log In',
               color: Colors.lightBlueAccent,
-              onPressed: () {},
+              onPressed: () {
+                controller.signInUser();
+              },
             ),
           ],
         ),
